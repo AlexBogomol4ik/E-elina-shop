@@ -7,19 +7,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="assets/css/preloader.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/meanmenu.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
-    <link rel="stylesheet" href="assets/css/backtotop.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
-    <link rel="stylesheet" href="assets/flaticon/flaticon.css">
-    <link rel="stylesheet" href="assets/css/default.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/preloader.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/assets/css/backtotop.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome-pro.css">
+    <link rel="stylesheet" href="/assets/flaticon/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <div id="loading">
@@ -55,10 +55,10 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li>
-                                            <a href="/">Главная</a>
+                                            <a href="{{route('index')}}">Главная</a>
                                         </li>
                                         <li>
-                                            <a href="/shop">Каталог</a>
+                                            <a href="{{route('shop')}}">Каталог</a>
                                         </li>
                                         <li class="has-dropdown">
                                             <a>Навигация</a>
@@ -67,13 +67,13 @@
                                                     <a href="about.html">О нас</a>
                                                 </li>
                                                 <li>
-                                                    <a href="cart.html">Корзина</a>
+                                                    <a href="{{route('cart')}}">Корзина</a>
                                                 </li>
                                                 <li>
                                                     <a href="checkout.html">Оформить заказ</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/sign">Войти</a>
+                                                    <a href="{{route('sign')}}">Войти</a>
                                                 </li>
                                                 <li>
                                                     <a href="contact.html">Связаться с нами</a>
@@ -106,8 +106,8 @@
                                     <nav>
                                         <ul>
                                             <li class="has-dropdown">
-                                                <a href="shop.html">
-                                                    <i class="fal fa-headphones"></i>
+                                                <a href="{{route('shop')}}">
+                                                    <i class="fal fa-all"></i>
                                                     Все
                                                 </a>
                                                 <ul class="mega-menu">
@@ -123,7 +123,7 @@
                                             @foreach($categories as $cat)
                                                 <li class="has-dropdown">
                                                     <a href="{{$cat->code}}">
-                                                        <i class="fal fa-alarm-clock"></i>
+                                                        <i class="fal {{$cat->fa_code}}"></i>
                                                         {{$cat->name}}
                                                     </a>
                                                     <ul class="submenu">
@@ -160,7 +160,7 @@
                                 <div class="header__action ml-30">
                                     <ul>
                                         <li>
-                                            <a href="signin"><i class="fal fa-user-circle"></i></a>
+                                            <a href="{{route('sign')}}"><i class="fal fa-user-circle"></i></a>
                                         </li>
                                         <li>
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#cartMiniModal">
@@ -261,7 +261,7 @@
                         <span>$180.00</span>
                     </div>
                     <div class="cartmini__bottom">
-                        <a href="cart.html" class="b-btn w-100 mb-20">Корзина</a>
+                        <a href="{{route('cart-place')}}" class="b-btn w-100 mb-20">Корзина</a>
                         <a href="checkout.html" class="b-btn-2 w-100">Оформить заказ</a>
                     </div>
                 </div>

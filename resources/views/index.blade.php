@@ -64,7 +64,7 @@
                             <h3 class="category__title">
                                 <a href="{{$cat->code}}">{{$cat->name}}</a>
                             </h3>
-                            <span class="category__quantity">(73)</span>
+                            <span class="category__quantity"></span>
                         </div>
                     </div>
                 </div>

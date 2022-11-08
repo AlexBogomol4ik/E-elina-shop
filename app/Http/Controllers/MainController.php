@@ -14,6 +14,12 @@ class MainController extends Controller
         return view('index', compact('categories','product'));
     }
 
+    public function shop(){
+        $categories = Category::get();
+        $product = Product::get();
+        return view('shop', compact('categories', 'product'));
+    }
+
     public function sign(){
         $categories = Category::get();
         return view('sign', compact('categories'));
@@ -23,7 +29,7 @@ class MainController extends Controller
     public function category($category){
         $categories = Category::get();
         $category = Category::where('code', $category)->first();
-        return view('shop', compact('category', 'categories'));
+        return view('shop_select', compact('category', 'categories'));
     }
 
 
