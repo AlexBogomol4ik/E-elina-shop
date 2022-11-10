@@ -9,6 +9,19 @@ use League\CommonMark\Node\Query\OrExpr;
 
 class BasketController extends Controller
 {
+
+    public function checkout(){
+        $categories = Category::get();
+
+        $orderId = session('orderId');
+        if(is_null($orderId)){
+            return redirect()->route('index');
+        }
+        $order = Order::find($orderId);
+        return view('checkout', compact('categories' , 'order'));
+    }
+
+
     public function cart()
     {
         $categories = Category::get();

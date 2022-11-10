@@ -9,9 +9,17 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function product_category(){
+    public function product_category()
+    {
         return Category::find($this->category_id);
     }
 
+    public function getPriceForCount()
+    {
+        if (!is_null($this->pivot)) {
+            return $this->pivot->count * $this->price;
+        }
+        return $this->price;
+    }
 
 }

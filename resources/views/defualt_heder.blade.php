@@ -54,12 +54,6 @@
                             <div class="main-menu main-menu-border main-menu-4">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li>
-                                            <a href="{{route('index')}}">Главная</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('shop')}}">Каталог</a>
-                                        </li>
                                         <li class="has-dropdown">
                                             <a>Навигация</a>
                                             <ul class="submenu">
@@ -70,7 +64,7 @@
                                                     <a href="{{route('cart')}}">Корзина</a>
                                                 </li>
                                                 <li>
-                                                    <a href="checkout.html">Оформить заказ</a>
+                                                    <a href="{{route('cart-checkout')}}">Оформить заказ</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{route('sign')}}">Войти</a>
@@ -79,6 +73,12 @@
                                                     <a href="contact.html">Связаться с нами</a>
                                                 </li>
                                             </ul>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('index')}}">Главная</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('shop')}}">Каталог</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -196,9 +196,9 @@
                             <button type="button" data-bs-dismiss="modal" data-bs-target="#cartMiniModal" class="cartmini__close-btn"> <i class="fal fa-times"></i></button>
                         </div>
                     </div>
-
                     <div class="cartmini__list">
                         <ul>
+                            @foreach($order->products as $prod_det)
                             <li class="cartmini__item p-relative d-flex align-items-start">
                                 <div class="cartmini__thumb mr-15">
                                     <a href="product-details.html">
@@ -207,62 +207,30 @@
                                 </div>
                                 <div class="cartmini__content">
                                     <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Walnut Base</a>
+                                        <a href="product-details.html">{{$prod_det->name}}</a>
                                     </h3>
                                     <span class="cartmini__price">
-                                            <span class="price">1 × $70.00</span>
+                                            <span class="price">1 × {{$prod_det->price}} рублей</span>
                                         </span>
                                 </div>
-                                <a href="#" class="cartmini__remove">
+                                <form action="{{route('cart-remove', $prod_det)}}" method="POST">
+                                <button type="submit" href="#" class="cartmini__remove">
                                     <i class="fal fa-times"></i>
-                                </a>
+                                </button>
+                                    @csrf
+                                </form>
                             </li>
-                            <li class="cartmini__item p-relative d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="assets/img/products/product-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Simon Legald</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                            <span class="price">1 × $95.99</span>
-                                        </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-relative d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="assets/img/products/product-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Antique Chinese Armchairs</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                            <span class="price">1 × $120.00</span>
-                                        </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
 
                     <div class="cartmini__total d-flex align-items-center justify-content-between">
                         <h5>Всего</h5>
-                        <span>$180.00</span>
+                        <span>{{$order->getFullPrice()}} рублей</span>
                     </div>
                     <div class="cartmini__bottom">
-                        <a href="{{route('cart-place')}}" class="b-btn w-100 mb-20">Корзина</a>
-                        <a href="checkout.html" class="b-btn-2 w-100">Оформить заказ</a>
+                        <a href="{{route('cart')}}" class="b-btn w-100 mb-20">Корзина</a>
+                        <a href="{{route('cart-checkout')}}" class="b-btn-2 w-100">Оформить заказ</a>
                     </div>
                 </div>
             </div>

@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="col-xxl-4 col-xl-6 col-md-6 col-sm-6">
-                                <p class="show-total-result text-sm-center">Всего товаров: {{$category->products->count()}}</p>
+                                <p class="show-total-result text-sm-center">Всего товаров:</p>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <div class="tab-pane fade active show" id="tab1">
                                 <div class="row">
 
-                                    @foreach($category->products as $product)
+                                    @foreach($category->productsCat as $product)
 
                                     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
                                         <div class="product__item mb-20">

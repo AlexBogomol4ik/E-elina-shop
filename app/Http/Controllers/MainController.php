@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,13 +12,17 @@ class MainController extends Controller
     public function index(){
         $categories = Category::get();
         $product = Product::get();
-        return view('index', compact('categories','product'));
+        $orderId = session('orderId');
+        $order = Order::find($orderId);
+        return view('index', compact('categories','product', 'order'));
     }
 
     public function shop(){
         $categories = Category::get();
         $product = Product::get();
-        return view('shop', compact('categories', 'product'));
+        $orderId = session('orderId');
+        $order = Order::find($orderId);
+        return view('shop', compact('categories', 'product', 'order'));
     }
 
     public function sign(){
@@ -27,9 +32,12 @@ class MainController extends Controller
 
 
     public function category($category){
+        $orderId = session('orderId');
+        $order = Order::find($orderId);
         $categories = Category::get();
         $category = Category::where('code', $category)->first();
-        return view('shop_select', compact('category', 'categories'));
+
+        return view('shop_select', compact('category', 'categories', 'order'));
     }
 
 

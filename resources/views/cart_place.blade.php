@@ -43,7 +43,7 @@
                                                     src="assets/img/cart/cart-1.jpg" alt=""></a></td>
                                         <td class="product-name"><a href="product-details.html">{{$prod_det->name}}</a>
                                         </td>
-                                        <td class="product-price"><span class="amount">$130.00</span></td>
+                                        <td class="product-price"><span class="amount">{{$prod_det->price}}</span></td>
                                         <td class="product-quantity">
                                             <div>
                                                 <form action="{{route('cart-remove', $prod_det)}}" method="POST">
@@ -57,7 +57,7 @@
                                                 </form>
                                             </div>
                                         </td>
-                                        <td class="product-subtotal"><span class="amount">$130.00</span></td>
+                                        <td class="product-subtotal"><span class="amount">{{$prod_det->getPriceForCount()}}</span></td>
                                         <td class="product-remove"><a href=""><i class="fa fa-times"></i></a></td>
                                     </tr>
                                 @endforeach
@@ -78,9 +78,9 @@
                                 <div class="cart-page-total">
                                     <h2>Всего: </h2>
                                     <ul class="mb-20">
-                                        <li>Итог <span>$250.00</span></li>
+                                        <li>Итог <span>{{$order->getFullPrice()}} рублей</span></li>
                                     </ul>
-                                    <a class="btn-tp-2" href="checkout.html">Оформить заказ</a>
+                                    <a class="btn-tp-2" href="{{route('cart-checkout')}}">Оформить заказ</a>
                                 </div>
                             </div>
                         </div>
