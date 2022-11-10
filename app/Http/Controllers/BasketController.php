@@ -4,24 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Order;
-use App\Models\Product;
 use Illuminate\Http\Request;
+use League\CommonMark\Node\Query\OrExpr;
 
 class BasketController extends Controller
 {
-
-    public function cartPlace()
-    {
-        $categories = Category::get();
-        return view('cart_place', compact('categories'));
-    }
-
     public function cart()
     {
         $categories = Category::get();
-        $orederId = session('orderId');
-        if (!is_null($orederId)) {
-            $order = Order::findOrFail($orederId);
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
         }
         return view('cart_place', compact('categories', 'order'));
     }
@@ -29,13 +22,12 @@ class BasketController extends Controller
     public function cartAdd($productId)
     {
         $categories = Category::get();
-        $orederId = session('orderId');
-        if (is_null($orederId)) {
-            $orederId = Order::create()->id;
-            session(['orderId' => $order->id]);
-        } else {
-            $order = Order::find($orederId);
+        $orderId = session('orderId');
+        if(is_null($orderId)){
+            $orderId = Order::create()->id;
+            session(['orderId' => $orderId]);
         }
+        $order = Order::find($orderId);
 
         if ($order->products->contains($productId)) {
             $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
@@ -69,5 +61,4 @@ class BasketController extends Controller
         }
         return redirect()->route('cart');
     }
-
 }

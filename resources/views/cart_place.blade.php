@@ -37,21 +37,21 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($order->products as $product)
+                                @foreach($order->products as $prod_det)
                                     <tr>
                                         <td class="product-thumbnail"><a href="product-details.html"><img
                                                     src="assets/img/cart/cart-1.jpg" alt=""></a></td>
-                                        <td class="product-name"><a href="product-details.html">{{$product->name}}</a>
+                                        <td class="product-name"><a href="product-details.html">{{$prod_det->name}}</a>
                                         </td>
                                         <td class="product-price"><span class="amount">$130.00</span></td>
                                         <td class="product-quantity">
                                             <div>
-                                                <form action="{{route('cart-remove', $product)}}" method="POST">
+                                                <form action="{{route('cart-remove', $prod_det)}}" method="POST">
                                                     <button type="submit"><i class="fa fa-minus"></i></button>
                                                     @csrf
                                                 </form>
-                                                <h4>{{$product->pivot->count}}</h4>
-                                                <form action="{{route('cart-add', $product)}}" method="POST">
+                                                <h4>{{$prod_det->pivot->count}}</h4>
+                                                <form action="{{route('cart-add', $prod_det)}}" method="POST">
                                                     <button type="submit"><i class="fa fa-plus"></i></button>
                                                     @csrf
                                                 </form>
