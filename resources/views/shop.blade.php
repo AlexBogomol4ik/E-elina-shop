@@ -1,6 +1,6 @@
+@extends('layouts.master')
 @section('title' , 'Элина мебель || Каталог')
-@include('defualt_heder');
-
+@section('content')
 <main>
     <section class="page__title p-relative d-flex align-items-center" data-background="assets/img/bg/page-title-1.jpg"
              style="background-image: url(&quot;assets/img/page-title/page-title-1.jpg&quot;);">
@@ -730,9 +730,5 @@
             </div>
         </div>
     </div>
-    <!-- shop modal end -->
-
 </main>
-
-
-@include('defualt_footer');
+@endsection

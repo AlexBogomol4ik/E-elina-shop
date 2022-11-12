@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->tinyInteger('status')->default(0);
             $table->string('name')->nullable();
+            $table->string('firstName')->nullable();
+            $table->string('secondName')->nullable();
             $table->string('phone')->nullable();
-            $table->integer('count')->default(1);
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

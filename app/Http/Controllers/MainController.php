@@ -9,20 +9,23 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+
     public function index(){
         $categories = Category::get();
         $product = Product::get();
-        $orderId = session('orderId');
-        $order = Order::find($orderId);
-        return view('index', compact('categories','product', 'order'));
+        return view('index', compact('categories','product'));
+    }
+
+    public function productDetails($id){
+        $categories = Category::get();
+        $product_id = Product::where('id', $id)->first();
+        return view('product_details', compact('categories', 'product_id'));
     }
 
     public function shop(){
         $categories = Category::get();
         $product = Product::get();
-        $orderId = session('orderId');
-        $order = Order::find($orderId);
-        return view('shop', compact('categories', 'product', 'order'));
+        return view('shop', compact('categories', 'product'));
     }
 
     public function sign(){
@@ -30,14 +33,16 @@ class MainController extends Controller
         return view('sign', compact('categories'));
     }
 
+    public function register(){
+        $categories = Category::get();
+        return view('auth.register', compact('categories'));
+    }
+
 
     public function category($category){
-        $orderId = session('orderId');
-        $order = Order::find($orderId);
         $categories = Category::get();
         $category = Category::where('code', $category)->first();
-
-        return view('shop_select', compact('category', 'categories', 'order'));
+        return view('shop_select', compact('category', 'categories'));
     }
 
 

@@ -1,33 +1,51 @@
+@extends('layouts.master')
 @section('title' , 'Элина мебель || Главная')
-@include('defualt_heder')
+@section('content')
 <main>
+    @if(session()->has('success'))
+        <div id="overlay">
+            <div class="popup">
+                <h3>Уведомление</h3>
+                <p>{{session()->get('success')}}</p>
+                <h3 class="fal fa-alarm-clock"></h3>
+                <button class="close" title="Закрыть"
+                        onclick="document.getElementById('overlay').style.display='none';"></button>
+            </div>
+        </div>
+    @endif
     <section class="slider__area">
         <div class="slider__active swiper-container">
             <div class="swiper-wrapper">
-                <div class="slider__item slider__height swiper-slide d-flex align-items-center include-bg" data-background="assets/img/slider/slider-1.jpg">
+                <div class="slider__item slider__height swiper-slide d-flex align-items-center include-bg"
+                     data-background="assets/img/slider/slider-1.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-xxl-5">
                                 <div class="slider__content p-relative z-index-11">
                                     <span data-animation="fadeInUp" data-delay=".3s">SUMMER ‘21</span>
-                                    <h3 class="slider__title" data-animation="fadeInUp" data-delay=".5s">Office Style</h3>
+                                    <h3 class="slider__title" data-animation="fadeInUp" data-delay=".5s">Office
+                                        Style</h3>
                                     <div class="slider__btn" data-animation="fadeInUp" data-delay=".4s">
-                                        <a href="shop.html" class="slider-btn">Discover Now <i class="fal fa-angle-right"></i></a>
+                                        <a href="shop.html" class="slider-btn">Discover Now <i
+                                                class="fal fa-angle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slider__item slider__height swiper-slide d-flex align-items-center include-bg" data-background="assets/img/slider/slider-2.jpg">
+                <div class="slider__item slider__height swiper-slide d-flex align-items-center include-bg"
+                     data-background="assets/img/slider/slider-2.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-xxl-5">
                                 <div class="slider__content p-relative z-index-11">
                                     <span data-animation="fadeInUp" data-delay=".3s">SUMMER ‘21</span>
-                                    <h3 class="slider__title" data-animation="fadeInUp" data-delay=".5s">Living Luxury</h3>
+                                    <h3 class="slider__title" data-animation="fadeInUp" data-delay=".5s">Living
+                                        Luxury</h3>
                                     <div class="slider__btn" data-animation="fadeInUp" data-delay=".4s">
-                                        <a href="shop.html" class="slider-btn">Discover Now <i class="fal fa-angle-right"></i></a>
+                                        <a href="shop.html" class="slider-btn">Discover Now <i
+                                                class="fal fa-angle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -53,21 +71,21 @@
             </div>
             <div class="row">
                 @foreach($categories as $cat)
-                <div class="col-xxl-2 col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                    <div class="category__item mb-30 grey-bg-3">
-                        <div class="category__thumb w-img fix">
-                            <a href="{{$cat->code}}">
-                                <img src="assets/img/products/category/category-6.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="category__content text-center">
-                            <h3 class="category__title">
-                                <a href="{{$cat->code}}">{{$cat->name}}</a>
-                            </h3>
-                            <span class="category__quantity"></span>
+                    <div class="col-xxl-2 col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                        <div class="category__item mb-30 grey-bg-3">
+                            <div class="category__thumb w-img fix">
+                                <a href="{{$cat->code}}">
+                                    <img src="/assets/img/products/category/category-6.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="category__content text-center">
+                                <h3 class="category__title">
+                                    <a href="{{$cat->code}}">{{$cat->name}}</a>
+                                </h3>
+                                <span class="category__quantity"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -119,7 +137,8 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
                                                     <svg viewBox="0 0 22 22">
                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -184,7 +203,8 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
                                                     <svg viewBox="0 0 22 22">
                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -225,32 +245,33 @@
                         </div>
                         <div class="product__tab-content">
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                                <div class="tab-pane fade show active" id="new" role="tabpanel"
+                                     aria-labelledby="new-tab">
                                     <div class="product__item-slider common-nav owl-carousel">
                                         @foreach($product as $prod_det)
-                                        <div class="product_item-single">
-                                            <div class="product__item mb-20">
-                                                <div class="product__thumb w-img ">
-                                                    <a href="product-details.html">
-                                                        <img src="assets/img/products/product-2.jpg" alt="">
-                                                    </a>
-                                                    <div class="product__action transition-2">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="#">
-                                                                    <svg viewBox="0 0 22 22">
-                                                                        <g>
-                                                                            <path d="M18,19H6c-0.5,0-0.92-0.37-0.99-0.86L3.13,5H1C0.45,5,0,4.55,0,4s0.45-1,1-1h3c0.5,0,0.92,0.37,0.99,0.86L6.87,17h10.39
+                                            <div class="product_item-single">
+                                                <div class="product__item mb-20">
+                                                    <div class="product__thumb w-img ">
+                                                        <a href="{{route('product-details',$prod_det)}}">
+                                                            <img src="assets/img/products/product-2.jpg" alt="">
+                                                        </a>
+                                                        <div class="product__action transition-2">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <svg viewBox="0 0 22 22">
+                                                                            <g>
+                                                                                <path d="M18,19H6c-0.5,0-0.92-0.37-0.99-0.86L3.13,5H1C0.45,5,0,4.55,0,4s0.45-1,1-1h3c0.5,0,0.92,0.37,0.99,0.86L6.87,17h10.39
                                                                             l2.4-8H11c-0.55,0-1-0.45-1-1s0.45-1,1-1h10c0.32,0,0.61,0.15,0.8,0.4c0.19,0.25,0.25,0.58,0.16,0.88l-3,10
                                                                             C18.83,18.71,18.44,19,18,19z"/>
-                                                                        </g>
-                                                                    </svg>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                                                    <svg viewBox="0 0 22 22">
-                                                                        <path d="M20.26,11.3c2.31-2.36,2.31-6.18-0.02-8.53C19.11,1.63,17.6,1,16,1c0,0,0,0,0,0c-1.57,0-3.05,0.61-4.18,1.71c0,0,0,0,0,0
+                                                                            </g>
+                                                                        </svg>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <svg viewBox="0 0 22 22">
+                                                                            <path d="M20.26,11.3c2.31-2.36,2.31-6.18-0.02-8.53C19.11,1.63,17.6,1,16,1c0,0,0,0,0,0c-1.57,0-3.05,0.61-4.18,1.71c0,0,0,0,0,0
                                                                             L11,3.41l-0.81-0.69c0,0,0,0,0,0C9.06,1.61,7.58,1,6,1C4.4,1,2.89,1.63,1.75,2.77c-2.33,2.35-2.33,6.17-0.02,8.53
                                                                             c0,0,0,0.01,0.01,0.01l0.01,0.01c0,0,0,0,0,0c0,0,0,0,0,0L11,20.94l9.25-9.62c0,0,0,0,0,0c0,0,0,0,0,0L20.26,11.3
                                                                             C20.26,11.31,20.26,11.3,20.26,11.3z M3.19,9.92C3.18,9.92,3.18,9.92,3.19,9.92C3.18,9.92,3.18,9.91,3.18,9.91
@@ -259,38 +280,40 @@
                                                                             c0.08,0,0.16-0.03,0.25-0.05c0.03-0.01,0.07-0.01,0.1-0.02c0.07-0.03,0.13-0.07,0.2-0.11c0.03-0.02,0.07-0.03,0.1-0.06l1.46-1.24
                                                                             c0.01-0.01,0.02-0.02,0.03-0.03c0.01-0.01,0.03-0.01,0.04-0.02C13.93,3.42,14.93,3,16,3c0,0,0,0,0,0c1.07,0,2.07,0.42,2.83,1.18
                                                                             c1.56,1.58,1.56,4.15,0,5.73c0,0,0,0.01-0.01,0.01c0,0,0,0,0,0L11,18.06L3.19,9.92z"/>
-                                                                    </svg>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <svg viewBox="0 0 22 22">
-                                                                        <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
+                                                                        </svg>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:void({{$prod_det}})"
+                                                                       data-bs-toggle="modal"
+                                                                       data-bs-target="#productModalId">
+                                                                        <svg viewBox="0 0 22 22">
+                                                                            <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
                                                                             C6.52,5,3.37,9.51,2.46,11z M11,15c-2.21,0-4-1.79-4-4s1.79-4,4-4s4,1.79,4,4S13.21,15,11,15z M11,9c-1.1,0-2,0.9-2,2s0.9,2,2,2
                                                                             s2-0.9,2-2S12.1,9,11,9z"/>
-                                                                    </svg>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                                        </svg>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="product__content text-center">
-                                                    <div class="product__tag">
+                                                    <div class="product__content text-center">
+                                                        <div class="product__tag">
                                                                 <span>
-                                                                    <a href="#">{{$prod_det->product_category()->name}}</a>
+                                                                    <a>{{$prod_det->product_category()->name}}</a>
                                                                 </span>
-                                                    </div>
-                                                    <h3 class="product__title">
-                                                        <a href="product-details.html">{{$prod_det->name}}</a>
-                                                    </h3>
-                                                    <div class="product__price">
-                                                        <span class="price">{{$prod_det->price}}</span>
+                                                        </div>
+                                                        <h3 class="product__title">
+                                                            <a>{{$prod_det->name}}</a>
+                                                        </h3>
+                                                        <div class="product__price">
+                                                            <span class="price">{{$prod_det->price}}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -402,20 +425,30 @@
                             <div class="product__tab">
                                 <ul class="nav nav-tabs" id="trendingTab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="new-2-tab" data-bs-toggle="tab" data-bs-target="#new-2" type="button" role="tab" aria-controls="new-2" aria-selected="true">New</button>
+                                        <button class="nav-link active" id="new-2-tab" data-bs-toggle="tab"
+                                                data-bs-target="#new-2" type="button" role="tab" aria-controls="new-2"
+                                                aria-selected="true">New
+                                        </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="featured-2-tab" data-bs-toggle="tab" data-bs-target="#featured-2" type="button" role="tab" aria-controls="featured-2" aria-selected="false">Featured</button>
+                                        <button class="nav-link" id="featured-2-tab" data-bs-toggle="tab"
+                                                data-bs-target="#featured-2" type="button" role="tab"
+                                                aria-controls="featured-2" aria-selected="false">Featured
+                                        </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="top-2-tab" data-bs-toggle="tab" data-bs-target="#top-2" type="button" role="tab" aria-controls="top-2" aria-selected="false">Top Sellers</button>
+                                        <button class="nav-link" id="top-2-tab" data-bs-toggle="tab"
+                                                data-bs-target="#top-2" type="button" role="tab" aria-controls="top-2"
+                                                aria-selected="false">Top Sellers
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="product__tab-content">
                             <div class="tab-content" id="trendingTabContent">
-                                <div class="tab-pane fade show active" id="new-2" role="tabpanel" aria-labelledby="new-2-tab">
+                                <div class="tab-pane fade show active" id="new-2" role="tabpanel"
+                                     aria-labelledby="new-2-tab">
                                     <div class="product__item-slider common-nav owl-carousel">
                                         <div class="product__item-single">
                                             <div class="product__item mb-20">
@@ -452,7 +485,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -534,7 +568,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -594,7 +629,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -656,7 +692,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -716,7 +753,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -778,7 +816,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -797,7 +836,8 @@
                                                                 </span>
                                                     </div>
                                                     <h3 class="product__title">
-                                                        <a href="product-details.html">Carronade Large Suspension Lamp</a>
+                                                        <a href="product-details.html">Carronade Large Suspension
+                                                            Lamp</a>
                                                     </h3>
                                                     <div class="product__price">
                                                         <span class="price">$299.00</span>
@@ -838,7 +878,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -867,7 +908,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="featured-2" role="tabpanel" aria-labelledby="featured-2-tab">
+                                <div class="tab-pane fade" id="featured-2" role="tabpanel"
+                                     aria-labelledby="featured-2-tab">
                                     <div class="product__item-slider common-nav owl-carousel">
                                         <div class="product__item-single">
                                             <div class="product__item mb-20">
@@ -904,7 +946,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -964,7 +1007,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1026,7 +1070,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1086,7 +1131,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1168,7 +1214,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1230,7 +1277,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1249,7 +1297,8 @@
                                                                 </span>
                                                     </div>
                                                     <h3 class="product__title">
-                                                        <a href="product-details.html">Carronade Large Suspension Lamp</a>
+                                                        <a href="product-details.html">Carronade Large Suspension
+                                                            Lamp</a>
                                                     </h3>
                                                     <div class="product__price">
                                                         <span class="price">$299.00</span>
@@ -1290,7 +1339,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1376,7 +1426,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1438,7 +1489,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1457,7 +1509,8 @@
                                                                 </span>
                                                     </div>
                                                     <h3 class="product__title">
-                                                        <a href="product-details.html">Carronade Large Suspension Lamp</a>
+                                                        <a href="product-details.html">Carronade Large Suspension
+                                                            Lamp</a>
                                                     </h3>
                                                     <div class="product__price">
                                                         <span class="price">$299.00</span>
@@ -1498,7 +1551,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1560,7 +1614,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1620,7 +1675,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1682,7 +1738,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1742,7 +1799,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                                   data-bs-target="#productModalId">
                                                                     <svg viewBox="0 0 22 22">
                                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1818,7 +1876,8 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
                                                     <svg viewBox="0 0 22 22">
                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1883,7 +1942,8 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                   data-bs-target="#productModalId">
                                                     <svg viewBox="0 0 22 22">
                                                         <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                             C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -1968,13 +2028,22 @@
                             <div class="product__tab">
                                 <ul class="nav nav-tabs" id="myTab2" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="new-3-tab" data-bs-toggle="tab" data-bs-target="#new-3" type="button" role="tab" aria-controls="new-3" aria-selected="true">New</button>
+                                        <button class="nav-link active" id="new-3-tab" data-bs-toggle="tab"
+                                                data-bs-target="#new-3" type="button" role="tab" aria-controls="new-3"
+                                                aria-selected="true">New
+                                        </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="featured-3-tab" data-bs-toggle="tab" data-bs-target="#featured-3" type="button" role="tab" aria-controls="featured-3" aria-selected="false">Featured</button>
+                                        <button class="nav-link" id="featured-3-tab" data-bs-toggle="tab"
+                                                data-bs-target="#featured-3" type="button" role="tab"
+                                                aria-controls="featured-3" aria-selected="false">Featured
+                                        </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="top-3-tab" data-bs-toggle="tab" data-bs-target="#top-3" type="button" role="tab" aria-controls="top-3" aria-selected="false">Top Sellers</button>
+                                        <button class="nav-link" id="top-3-tab" data-bs-toggle="tab"
+                                                data-bs-target="#top-3" type="button" role="tab" aria-controls="top-3"
+                                                aria-selected="false">Top Sellers
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -1986,7 +2055,8 @@
                 <div class="col-xxl-12">
                     <div class="product__tab-content">
                         <div class="tab-content" id="myTab2Content">
-                            <div class="tab-pane fade show active" id="new-3" role="tabpanel" aria-labelledby="new-3-tab">
+                            <div class="tab-pane fade show active" id="new-3" role="tabpanel"
+                                 aria-labelledby="new-3-tab">
                                 <div class="product__item-trending-slider common-nav owl-carousel">
                                     <div class="product__item mb-20">
                                         <div class="product__thumb w-img fix">
@@ -2022,7 +2092,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                         C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2082,7 +2153,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                         C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2142,7 +2214,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2202,7 +2275,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2262,7 +2336,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2322,7 +2397,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2386,7 +2462,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2446,7 +2523,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                         C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2506,7 +2584,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                         C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2566,7 +2645,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2626,7 +2706,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2686,7 +2767,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2750,7 +2832,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2810,7 +2893,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2870,7 +2954,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                         C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2930,7 +3015,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -2990,7 +3076,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                         C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -3050,7 +3137,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                           data-bs-target="#productModalId">
                                                             <svg viewBox="0 0 22 22">
                                                                 <path d="M11,19c-6.53,0-10.42-7.23-10.58-7.53L0.17,11l0.25-0.47C0.58,10.23,4.47,3,11,3s10.42,7.23,10.58,7.53L21.83,11l-0.25,0.47
                                                                     C21.42,11.77,17.53,19,11,19z M2.46,11c0.92,1.49,4.08,6,8.54,6c4.48,0,7.63-4.51,8.54-6C18.62,9.52,15.46,5,11,5
@@ -3135,7 +3223,8 @@
                                                 <a href="#"><i class="far fa-share-alt"></i></a>
                                             </span>
                                 </div>
-                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero. Pellentesque the maurs nun non finitristiqof.</p>
+                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero.
+                                    Pellentesque the maurs nun non finitristiqof.</p>
 
                                 <div class="blog__btn">
                                     <a href="blog-details.html" class="link-btn">Continue Reading </a>
@@ -3178,7 +3267,8 @@
                                                 <a href="#"><i class="far fa-share-alt"></i></a>
                                             </span>
                                 </div>
-                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero. Pellentesque the maurs nun non finitristiqof.</p>
+                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero.
+                                    Pellentesque the maurs nun non finitristiqof.</p>
 
                                 <div class="blog__btn">
                                     <a href="blog-details.html" class="link-btn">Continue Reading </a>
@@ -3221,7 +3311,8 @@
                                                 <a href="#"><i class="far fa-share-alt"></i></a>
                                             </span>
                                 </div>
-                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero. Pellentesque the maurs nun non finitristiqof.</p>
+                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero.
+                                    Pellentesque the maurs nun non finitristiqof.</p>
 
                                 <div class="blog__btn">
                                     <a href="blog-details.html" class="link-btn">Continue Reading </a>
@@ -3264,7 +3355,8 @@
                                                 <a href="#"><i class="far fa-share-alt"></i></a>
                                             </span>
                                 </div>
-                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero. Pellentesque the maurs nun non finitristiqof.</p>
+                                <p>In mattis scelique the maga, cidunt. Quique thnibha, pretium tristique, biben mero.
+                                    Pellentesque the maurs nun non finitristiqof.</p>
 
                                 <div class="blog__btn">
                                     <a href="blog-details.html" class="link-btn">Continue Reading </a>
@@ -3276,9 +3368,7 @@
             </div>
         </div>
     </section>
-    <!-- blog area end -->
 
-    <!-- shop modal start -->
     <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered product__modal" role="document">
             <div class="modal-content">
@@ -3291,7 +3381,8 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="product__modal-box">
                                     <div class="tab-content" id="modalTabContent">
-                                        <div class="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
+                                        <div class="tab-pane fade show active" id="nav1" role="tabpanel"
+                                             aria-labelledby="nav1-tab">
                                             <div class="product__modal-img w-img">
                                                 <img src="assets/img/products/quick-view/quick-view-1.jpg" alt="">
                                             </div>
@@ -3314,22 +3405,30 @@
                                     </div>
                                     <ul class="nav nav-tabs" id="modalTab" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="true">
+                                            <button class="nav-link active" id="nav1-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1"
+                                                    aria-selected="true">
                                                 <img src="assets/img/products/quick-view/nav/quick-nav-1.jpg" alt="">
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
+                                            <button class="nav-link" id="nav2-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2"
+                                                    aria-selected="false">
                                                 <img src="assets/img/products/quick-view/nav/quick-nav-2.jpg" alt="">
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false">
+                                            <button class="nav-link" id="nav3-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3"
+                                                    aria-selected="false">
                                                 <img src="assets/img/products/quick-view/nav/quick-nav-3.jpg" alt="">
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4" aria-selected="false">
+                                            <button class="nav-link" id="nav4-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4"
+                                                    aria-selected="false">
                                                 <img src="assets/img/products/quick-view/nav/quick-nav-4.jpg" alt="">
                                             </button>
                                         </li>
@@ -3338,9 +3437,11 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="product__modal-content">
-                                    <h4 class="product__modal-title"><a href="product-details.html">Samsung C49J89: £875, Debenhams Plus</a></h4>
+                                    <h4 class="product__modal-title"><a href="product-details.html">Samsung C49J89:
+                                            £875, Debenhams Plus</a></h4>
                                     <div class="product__modal-des mb-40">
-                                        <p>Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt </p>
+                                        <p>Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum
+                                            claritatem. Investigationes demonstraverunt </p>
                                     </div>
                                     <div class="product__modal-stock">
                                         <span>Availability :</span>
@@ -3372,7 +3473,8 @@
                                         <form action="#">
                                             <div class="pro-quan-area d-lg-flex align-items-center">
                                                 <div class="product-quantity mr-20 mb-25">
-                                                    <div class="cart-plus-minus p-relative"><input type="text" value="1" /></div>
+                                                    <div class="cart-plus-minus p-relative"><input type="text"
+                                                                                                   value="1"/></div>
                                                 </div>
                                                 <div class="pro-cart-btn mb-25">
                                                     <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
@@ -3382,7 +3484,8 @@
                                     </div>
                                     <div class="product__modal-links">
                                         <ul>
-                                            <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
+                                            <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a>
+                                            </li>
                                             <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a></li>
                                             <li><a href="#" title="Print"><i class="fal fa-print"></i></a></li>
                                             <li><a href="#" title="Print"><i class="fal fa-share-alt"></i></a></li>
@@ -3397,4 +3500,4 @@
         </div>
     </div>
 </main>
-@include('defualt_footer');
+@endsection

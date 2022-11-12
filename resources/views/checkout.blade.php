@@ -1,6 +1,6 @@
+@extends('layouts.master')
 @section('title' , 'Элина мебель || Оформить заказ')
-@include('defualt_heder');
-
+@section('content')
 <main>
     <!-- page__title-start -->
     <section class="page__title p-relative d-flex align-items-center" data-background="/assets/img/bg/page-title-1.jpg">
@@ -26,7 +26,7 @@
     </section>
     <section class="checkout-area pb-85">
         <div class="container">
-            <form action="#">
+            <form action="{{route('checkout-confirm')}}" method="POST">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkbox-form">
@@ -35,32 +35,32 @@
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Имя <span class="required">*</span></label>
-                                        <input type="text" placeholder="">
+                                        <input name="name" type="text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Фамилия <span class="required">*</span></label>
-                                        <input type="text" placeholder="">
+                                        <input name="firstName" type="text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Отчество</label>
-                                        <input type="text" placeholder="">
+                                        <input name="secondName" type="text" placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Email адрес <span class="required">*</span></label>
-                                        <input type="email" placeholder="">
+                                        <input name="email" type="email" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Телефон <span class="required">*</span></label>
-                                        <input type="text" placeholder="">
+                                        <input name="phone" type="text" placeholder="">
                                     </div>
                                 </div>
                             </div>
@@ -123,17 +123,16 @@
 
                             <div class="payment-method">
                                 <div class="order-button-payment mt-20">
-                                    <button type="submit" class="btn-tp">Оформит заказ</button>
+                                    <button type="submit" class="btn-tp">Оформить заказ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @csrf
             </form>
         </div>
     </section>
-    <!-- checkout-area end -->
-
 </main>
 
-@include('defualt_footer');
+@endsection

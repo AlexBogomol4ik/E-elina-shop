@@ -1,5 +1,6 @@
+@extends('layouts.master')
 @section('title' , 'Элина мебель || Каталог')
-@include('defualt_heder');
+@section('content')
 <main>
     <section class="shop-details pt-90 pb-90">
         <div class="container">
@@ -179,7 +180,7 @@
                                 <div class="row">
                                     <div class="productwrap">
 
-                                        @foreach($category->products as $product)
+                                        @foreach($category->productsCat as $product)
                                             <div class="single-product mb-30 wood-list-product-wrap">
                                                 <div class="row align-items-xl-center">
                                                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4">
@@ -223,8 +224,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-
-
                                     </div>
                                 </div>
                             </div>
@@ -365,4 +364,4 @@
         </div>
     </div>
 </main>
-@include('defualt_footer');
+@endsection
