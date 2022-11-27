@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?2ed30a5aa4f649b97cd13cccc5a47f29") format("truetype"),
-url("./flaticon.woff?2ed30a5aa4f649b97cd13cccc5a47f29") format("woff"),
-url("./flaticon.woff2?2ed30a5aa4f649b97cd13cccc5a47f29") format("woff2"),
-url("./flaticon.eot?2ed30a5aa4f649b97cd13cccc5a47f29#iefix") format("embedded-opentype"),
-url("./flaticon.svg?2ed30a5aa4f649b97cd13cccc5a47f29#flaticon") format("svg");
+    src: url("flaticon.ttf?2ed30a5aa4f649b97cd13cccc5a47f29") format("truetype"),
+url("flaticon.woff?2ed30a5aa4f649b97cd13cccc5a47f29") format("woff"),
+url("flaticon.woff2?2ed30a5aa4f649b97cd13cccc5a47f29") format("woff2"),
+url("flaticon.eot?2ed30a5aa4f649b97cd13cccc5a47f29#iefix") format("embedded-opentype"),
+url("flaticon.svg?2ed30a5aa4f649b97cd13cccc5a47f29#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {

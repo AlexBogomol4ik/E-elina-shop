@@ -1,18 +1,18 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('title' , 'Элина мебель || Корзина')
 @section('content')
 <main>
-    <section class="page__title p-relative d-flex align-items-center" data-background="/assets/img/bg/page-title-1.jpg">
+    <section class="page__title p-relative d-flex align-items-center" data-background="/assets/img/products/kupovina-poslovnog-prostora.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="page__title-inner text-center">
-                        <h1>Your Cart</h1>
+                        <h1 class="text-white">Корзина</h1>
                         <div class="page__title-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Корзина</li>
+                                    <li class="breadcrumb-item text-white-50"><a href="{{route('index')}}">Главная</a></li>
+                                    <li class="breadcrumb-item active text-white-50" aria-current="page">Корзина</li>
                                 </ol>
                             </nav>
                         </div>
@@ -38,13 +38,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($order->products as $prod_det)
+                            @foreach($order->productPivot as $prod_det)
                                 <tr>
-                                    <td class="product-thumbnail"><a href="product-details.html"><img
-                                                src="assets/img/cart/cart-1.jpg" alt=""></a></td>
-                                    <td class="product-name"><a href="product-details.html">{{$prod_det->name}}</a>
+                                    <td class="product-thumbnail"><a href="{{route('product-details',$prod_det)}}"><img
+                                                src="{{Storage::url($prod_det->firstImage)}}" alt=""></a></td>
+                                    <td class="product-name"><a href="{{route('product-details',$prod_det)}}">{{$prod_det->name}}</a>
                                     </td>
-                                    <td class="product-price"><span class="amount">{{$prod_det->price}}</span></td>
+                                    <td class="product-price"> @if($prod_det->isSalary())
+                                            <span class="price new-price">{{$prod_det->salaryPrice}} рублей</span>
+                                        @else
+                                            <span class="price">{{$prod_det->price}} рублей</span>
+                                        @endif</td>
                                     <td class="product-quantity">
                                         <div>
                                             <form action="{{route('cart-remove', $prod_det)}}" method="POST">
@@ -60,7 +64,7 @@
                                     </td>
                                     <td class="product-subtotal"><span class="amount">{{$prod_det->getPriceForCount()}}</span></td>
                                         <td class="product-remove">
-                                            <form action="{{route('cart-removeAllRow', $prod_det)}}" method="POST">
+                                            <form action="{{route('cart-remove-all-row', $prod_det->id)}}" method="POST">
                                             <button type="submit"><i class="fa fa-times"></i></button>
                                                 @csrf
                                             </form>

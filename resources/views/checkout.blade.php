@@ -1,19 +1,18 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('title' , 'Элина мебель || Оформить заказ')
 @section('content')
 <main>
-    <!-- page__title-start -->
-    <section class="page__title p-relative d-flex align-items-center" data-background="/assets/img/bg/page-title-1.jpg">
+    <section class="page__title p-relative d-flex align-items-center" data-background="/assets/img/slider/dfa63f_e82405b76a404ceeab16280bbfbc7291.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="page__title-inner text-center">
-                        <h1>Cheakout</h1>
+                        <h1 class="text-white">Оформить заказ</h1>
                         <div class="page__title-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Cheakout</li>
+                                    <li class="breadcrumb-item text-white-50"><a href="{{route('index')}}">Главная</a></li>
+                                    <li class="breadcrumb-item active text-white-50" aria-current="page">Оформить заказ</li>
                                 </ol>
                             </nav>
                         </div>
@@ -35,32 +34,32 @@
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Имя <span class="required">*</span></label>
-                                        <input name="name" type="text" placeholder="">
+                                        <input name="name" type="text" placeholder="" class="required">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Фамилия <span class="required">*</span></label>
-                                        <input name="firstName" type="text" placeholder="">
+                                        <input name="firstName" type="text" placeholder="" class="required">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Отчество</label>
-                                        <input name="secondName" type="text" placeholder="">
+                                        <input name="secondName" type="text" placeholder="" class="required">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Email адрес <span class="required">*</span></label>
-                                        <input name="email" type="email" placeholder="">
+                                        <input name="email" type="email" placeholder="" class="required">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Телефон <span class="required">*</span></label>
-                                        <input name="phone" type="text" placeholder="">
+                                        <input name="phone" type="text" placeholder="" class="required">
                                     </div>
                                 </div>
                             </div>
@@ -79,13 +78,13 @@
                                     </thead>
                                     <tbody>
 
-                                    @foreach($order->products as $prod_det)
+                                    @foreach($order->productPivot as $prod_det)
                                     <tr class="cart_item">
                                         <td class="product-name">
                                             {{$prod_det->name}} <strong class="product-quantity"> × {{$prod_det->pivot->count}}</strong>
                                         </td>
                                         <td class="product-total">
-                                            <span class="amount">{{$prod_det->getPriceForCount()}} рублей</span>
+                                            <span class="amount">{{$prod_det->getPriceForCount()}}рублей</span>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -94,23 +93,6 @@
                                     <tr class="cart-subtotal">
                                         <th>Товаров на сумму:</th>
                                         <td><span class="amount">{{$order->getFullPrice()}} рублей</span></td>
-                                    </tr>
-                                    <tr class="shipping">
-                                        <th>Способ получения</th>
-                                        <td>
-                                            <ul>
-                                                <li>
-                                                    <input type="radio" name="shipping">
-                                                    <label>
-                                                        Доставка <span class="amount"></span>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input type="radio" name="shipping">
-                                                    <label>Самовызов</label>
-                                                </li>
-                                            </ul>
-                                        </td>
                                     </tr>
                                     <tr class="order-total">
                                         <th>Всего: </th>

@@ -1,8 +1,8 @@
-@use '../utils' as *;
+@use '../utils/index' as *;
 
 /*----------------------------------------*/
 /*  06. Modal CSS START
-/*----------------------------------------*/   
+/*----------------------------------------*/
 
 .product{
     &__modal{
@@ -143,7 +143,7 @@
                     }
                 }
             }
-        }   
+        }
         &-price{
             & span{
                 font-size: 22px;
@@ -151,7 +151,7 @@
                 display: inline-block;
                 margin-bottom: 15px;
             }
-        }     
+        }
     }
 }
 .rating{

@@ -1,8 +1,8 @@
-@use '../utils' as *;
+@use '../utils/index' as *;
 
 /*----------------------------------------*/
 /*  18. BLOG CSS START
-/*----------------------------------------*/   
+/*----------------------------------------*/
 //blog
 .blog{
     &__slider{
@@ -511,7 +511,7 @@
         margin-bottom: 0;
         padding: 0;
     }
-} 
+}
 .comments-text p {
 	margin-bottom: 15px;
     margin-top: 8px;

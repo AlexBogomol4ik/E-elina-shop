@@ -1,4 +1,4 @@
-@use '../utils' as *;
+@use '../utils/index' as *;
 
 /*----------------------------------------*/
 /*  10. HEADER CSS START
@@ -293,7 +293,7 @@
                     top: 50%;
                     right: 20px;
                     @include transform(translateY(-50%));
-                    font-size: 17px;
+                    font-size: 16px;
                     color: $black-2;
                 }
                 & .nice-select{
@@ -342,7 +342,6 @@
                 }
                 & a{
                     display: inline-block;
-                    font-size: 25px;
                     color: $black;
                     position: relative;
                     & .cart-count{
@@ -375,7 +374,7 @@
         }
         &-2{
             & ul{
-                & li{                   
+                & li{
                     & a{
                         & .cart-count{
                             background-color: $theme-color-3;
@@ -718,7 +717,7 @@
                     opacity: 1;
                 }
             }
-    
+
             // mega menu
             & .mega-menu{
                 position: absolute;
@@ -803,8 +802,8 @@
                     }
                 }
             }
-    
-            // submenu 
+
+            // submenu
             & .submenu{
                 position: absolute;
                 top: 0;
@@ -854,7 +853,7 @@
                                 height: 100%;
                                 bottom: auto;
                                 top: 0;
-                            } 
+                            }
                         }
                         & > .submenu{
                             visibility: visible;

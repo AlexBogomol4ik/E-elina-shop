@@ -9,15 +9,17 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function products(){
+    protected $fillable = ['status'];
+
+    public function productPivot(){
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
 
     public function getFullPrice(){
         $sum = 0;
-        foreach ($this->products as $product){
-            $sum += $product->getPriceForCount();
-        }
+            foreach ($this->productPivot as $product){
+                $sum += $product->getPriceForCount();
+            }
         return $sum;
     }
 

@@ -1,7 +1,7 @@
-@use '../utils' as *;
+@use '../utils/index' as *;
 /*----------------------------------------*/
 /* 17. About css start
-/*----------------------------------------*/ 
+/*----------------------------------------*/
 
 // about css start
 .about{
@@ -273,7 +273,7 @@
     float: left;
     margin-right: 40px;
     @media #{$xs} {
-        float: inherit; 
+        float: inherit;
         margin-bottom: 30px;
     }
     @media #{$sm} {

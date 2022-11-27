@@ -1,4 +1,4 @@
-@use '../utils' as *;
+@use '../utils/index' as *;
 
 /*----------------------------------------*/
 /*  19. TEAM CSS START
@@ -45,7 +45,7 @@
 }
 .tpteam-title {
 	font-size: 20px;
-	font-weight: 600;	
+	font-weight: 600;
 }
 .tpteam-title a:hover{
     color: $theme-color-3;

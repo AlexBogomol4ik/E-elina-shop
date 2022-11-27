@@ -1,8 +1,8 @@
-@use '../utils' as *;
+@use '../utils/index' as *;
 
 /*----------------------------------------*/
 /*  06. PRODUCT CSS START
-/*----------------------------------------*/    
+/*----------------------------------------*/
 
 //product css
 .product{
@@ -101,7 +101,7 @@
                     margin-left: 10px;
                 }
                 margin-left: 35px;
-                
+
             }
         }
         /* trending slider */
@@ -235,7 +235,7 @@
         }
     }
     &__title{
-        font-size: 14px;    
+        font-size: 14px;
         color: $black;
         margin-bottom: 3px;
         font-weight: 500;
@@ -245,7 +245,7 @@
             }
         }
         &-2{
-            font-size: 16px;    
+            font-size: 16px;
             color: $black;
             margin-bottom: 3px;
             & a{
@@ -290,7 +290,7 @@
                 font-size: 16px;
                 color: $theme-color-1;
                 font-weight: 600;
-    
+
                 &.old-price{
                     font-size: 15px;
                     color: $text-6;
@@ -307,7 +307,7 @@
         }
         &-3{
             height: 20px;
-            
+
             & .price{
                 position: relative;
                 font-size: 14px;
@@ -402,7 +402,7 @@
             }
         }
         &-title{
-            font-size: 16px;    
+            font-size: 16px;
             color: $black;
             margin-bottom: 3px;
             & a{
@@ -640,13 +640,13 @@
                         }
                     }
                 }
-            }  
+            }
         }
     }
     &__hot{
         &-info{
             & p{
-                
+
             }
         }
         &-title{
@@ -931,7 +931,7 @@
                     color: $black;
                     width: 15%;
                     display: inline-block;
-    
+
                     @media #{$xs}{
                         margin-bottom: 15px;
                     }
@@ -949,7 +949,7 @@
                             height: 20px;
                             background-color: #222;
                             box-shadow: 0 0 0 1px #dddddd, inset 0 0 0 2px #fff;
-    
+
                             &.brown{
                                 background-color: brown;
                             }
@@ -976,7 +976,7 @@
                     color: $black;
                     width: 15%;
                     display: inline-block;
-    
+
                     @media #{$xs}{
                         margin-bottom: 15px;
                     }
@@ -1004,7 +1004,7 @@
                                 border-color: $black;
                                 color: $black;
                             }
-    
+
                             &.unavailable{
                                 position: relative;
                                 cursor: not-allowed;
@@ -1141,7 +1141,7 @@
                   font-size: 14px;
                   color: #606060;
                   font-family: "Font Awesome 5 Pro";
-  
+
                 }
                 & span{
                   font-size: 16px;
@@ -1544,7 +1544,7 @@
     background: none;
     width: 100px;
   }
-  
+
 .product__color{
     & ul{
         @include flexbox();
@@ -1579,7 +1579,7 @@
                 &.selected{
                     box-shadow: 0 0 0 1px $black,inset 0 0 0 2px #fff;
                 }
-                
+
                 &:hover{
                     box-shadow: 0 0 0 1px $black,inset 0 0 0 2px #fff;
                 }
@@ -1756,7 +1756,7 @@
         margin-left: auto;
         @media #{$md} {
             margin-left: auto;
-        } 
+        }
         @media #{$xs} {
             margin-right: auto;
             margin-left: inherit;
@@ -2068,5 +2068,4 @@
   .cart-plus-minus .inc {
       right: 7px;
   }
-  
-  
+
